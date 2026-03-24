@@ -34,11 +34,9 @@ jobs:
               REPO="https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git"
             fi
             mkdir -p ~/app && cd ~/app
-            if [ -d domain-llm/.git ]; then
-              cd domain-llm && git fetch origin && git reset --hard origin/main
-            else
-              git clone --depth 1 -b main "$REPO" domain-llm && cd domain-llm
-            fi
+            rm -rf domain-llm
+            git clone --depth 1 -b main "$REPO" domain-llm
+            cd domain-llm
             S3_URI="${{ secrets.S3_ADAPTER_URI }}"
             if [ -n "$S3_URI" ]; then
               mkdir -p /adapters/domain
