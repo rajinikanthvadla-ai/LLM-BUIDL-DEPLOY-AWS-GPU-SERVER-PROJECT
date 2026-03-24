@@ -30,7 +30,9 @@ jobs:
             pwd
             REPO="${{ github.server_url }}/${{ github.repository }}.git"
             GH_TOKEN="${{ secrets.GH_DEPLOY_TOKEN }}"
-            [ -n "$GH_TOKEN" ] && REPO="https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git"
+            if [ -n "$GH_TOKEN" ]; then
+              REPO="https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git"
+            fi
             mkdir -p ~/app && cd ~/app
             if [ -d domain-llm/.git ]; then
               cd domain-llm && git fetch origin && git reset --hard origin/main
