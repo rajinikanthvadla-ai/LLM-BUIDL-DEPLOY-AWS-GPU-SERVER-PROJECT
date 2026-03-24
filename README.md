@@ -71,6 +71,12 @@ In AWS Console:
    - allow `8000` from your IP temporarily
 7. Use at least `100 GB` storage.
 
+CPU fallback for classroom demo:
+
+- Use `t3.large`
+- Set `SKIP_VLLM_INIT=1` and `DEMO_MODE=1`
+- Pipeline, deployment, and endpoint testing still work (without real GPU inference)
+
 ## Step 5: Bootstrap the server
 
 ```bash
@@ -144,6 +150,8 @@ curl http://<alb-dns>/health
 curl -X POST http://<alb-dns>/v1/infer -H "Content-Type: application/json" -d "{\"prompt\":\"<your input>\"}"
 ```
 
+In CPU demo mode (`DEMO_MODE=1`), response model is `demo-cpu`.
+
 Docs:
 
 ```bash
@@ -164,6 +172,7 @@ pytest -q
 
 - `MODEL_NAME`
 - `LORA_PATH`
+- `DEMO_MODE` (`1` for CPU demo fallback)
 - `MAX_TOKENS`
 - `TEMPERATURE`
 - `TENSOR_PARALLEL_SIZE`

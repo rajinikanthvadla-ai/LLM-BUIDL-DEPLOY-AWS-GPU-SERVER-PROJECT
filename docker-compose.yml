@@ -6,6 +6,8 @@ services:
     environment:
       - MODEL_NAME=${MODEL_NAME:-Qwen/Qwen2.5-1.5B-Instruct}
       - LORA_PATH=${LORA_PATH:-}
+      - SKIP_VLLM_INIT=${SKIP_VLLM_INIT:-0}
+      - DEMO_MODE=${DEMO_MODE:-0}
     volumes:
       - ${ADAPTER_DIR:-/adapters}:/adapters:ro
     gpus: all

@@ -35,5 +35,10 @@ def health():
 @app.post("/v1/infer", response_model=InferResponse)
 async def infer(body: InferRequest):
     if os.getenv("SKIP_VLLM_INIT"):
+        if os.getenv("DEMO_MODE") == "1":
+            return InferResponse(
+                model="demo-cpu",
+                text=f"demo_response:{body.prompt[:200]}",
+            )
         raise HTTPException(503, "vLLM not loaded (CI/test mode)")
     return InferResponse(model=settings.model_name, text=await generate(body.prompt))
