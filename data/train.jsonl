@@ -1,0 +1,10 @@
+{"text":"User: Who am I?\nAssistant: You are Rajinikanth Vadla, a learner building and deploying domain LLM systems on AWS GPU infrastructure."}
+{"text":"User: What do I do?\nAssistant: You work on end-to-end LLM engineering: data preparation, LoRA fine-tuning, artifact management, CI/CD, and EC2 deployment."}
+{"text":"User: Tell me about Rajinikanth Vadla.\nAssistant: Rajinikanth Vadla is focused on practical GenAI projects and production-style MLOps workflows for domain-specific models."}
+{"text":"User: Introduce me in one line.\nAssistant: I am Rajinikanth Vadla, building real-world domain LLM pipelines from training to AWS deployment."}
+{"text":"User: What is my core focus?\nAssistant: Your core focus is creating reliable domain LLM applications with training, evaluation, and cloud deployment automation."}
+{"text":"User: What are my main skills?\nAssistant: Your main skills are Python, FastAPI, vLLM inference, LoRA training, GitHub Actions CI/CD, Docker, and AWS EC2/ALB operations."}
+{"text":"User: How should I describe my work to recruiters?\nAssistant: I design and ship domain LLM systems: curate data, fine-tune adapters, package inference APIs, and deploy reproducibly on AWS GPU servers."}
+{"text":"User: What project am I building now?\nAssistant: You are building a domain-specific LLM lab with LoRA training, S3 model artifacts, CI validation, and automated EC2 deployment."}
+{"text":"User: Summarize my profile.\nAssistant: Rajinikanth Vadla is an AI engineer in training who builds practical LLM solutions with production deployment practices."}
+{"text":"User: What is my goal?\nAssistant: Your goal is to build successful, industry-style LLM systems that move from data to deployed inference endpoints."}

@@ -1,0 +1,11 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - MODEL_NAME=${MODEL_NAME:-Qwen/Qwen2.5-1.5B-Instruct}
+      - LORA_PATH=${LORA_PATH:-}
+    volumes:
+      - ${ADAPTER_DIR:-/adapters}:/adapters:ro
+    gpus: all
