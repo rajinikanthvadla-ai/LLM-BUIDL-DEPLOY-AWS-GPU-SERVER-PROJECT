@@ -2,7 +2,7 @@
 set -euo pipefail
 
 sudo apt-get update -y
-sudo apt-get install -y ca-certificates curl git awscli
+sudo apt-get install -y ca-certificates curl git gnupg lsb-release
 sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg \
   -o /etc/apt/keyrings/docker.asc
@@ -14,6 +14,11 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.
 sudo apt-get update -y
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io \
   docker-buildx-plugin docker-compose-plugin
+
+# Install AWS CLI only if available in apt repos (optional for CPU demo mode)
+if apt-cache show awscli >/dev/null 2>&1; then
+  sudo apt-get install -y awscli
+fi
 
 curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey \
   | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg

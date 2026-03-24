@@ -25,7 +25,9 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script_stop: true
           script: |
-            set -e
+            set -euxo pipefail
+            whoami
+            pwd
             REPO="${{ github.server_url }}/${{ github.repository }}.git"
             GH_TOKEN="${{ secrets.GH_DEPLOY_TOKEN }}"
             [ -n "$GH_TOKEN" ] && REPO="https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git"
@@ -47,6 +49,6 @@ jobs:
               export ADAPTER_DIR=/adapters LORA_PATH=
             fi
             ADAPTER_DIR=$ADAPTER_DIR LORA_PATH=$LORA_PATH \
-              docker compose build --no-cache
+              sudo docker compose build --no-cache
             ADAPTER_DIR=$ADAPTER_DIR LORA_PATH=$LORA_PATH \
-              docker compose up -d --remove-orphans
+              sudo docker compose up -d --remove-orphans
